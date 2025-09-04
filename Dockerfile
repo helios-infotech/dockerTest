@@ -4,6 +4,12 @@ WORKDIR /app
 
 COPY server.py /app
 COPY requirements.txt /app
+
+RUN python -m venv /app/vevn
+ENV PATH="/app/vevn/bin:$PATH"
+
+RUN . /app/vevn/bin/activate
+
 RUN pip install -r requirements.txt
 EXPOSE 8100
 

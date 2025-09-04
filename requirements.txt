@@ -21,17 +21,7 @@ langchain-openai>=0.1.21
 streamlit
 langgraph-checkpoint-mongodb
 
-fastapi
-uvicorn[standard]
-langgraph
-langchain-openai
-openai
-pydantic
-pymongo
-torch
 clip
-pillow
 chromadb
-scikit-learn
-python-multipart
+
 

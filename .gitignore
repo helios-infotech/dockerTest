@@ -1,1 +1,6 @@
-vevn/*
+venv/*
+image_database/
+user_images/
+chroma_db/
+.deepeval/
+uploaded_images/

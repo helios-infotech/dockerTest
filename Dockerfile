@@ -5,12 +5,12 @@ WORKDIR /app
 COPY server.py /app
 COPY requirements.txt /app
 
-RUN python -m venv /app/vevn
-ENV PATH="/app/vevn/bin:$PATH"
+RUN python -m venv /app/venv
+ENV PATH="/app/venv/bin:$PATH"
 
-RUN . /app/vevn/bin/activate
+RUN . /app/venv/bin/activate
 
 RUN pip install -r requirements.txt
 EXPOSE 8100
 
-CMD ["python", "-m", "uvicorn", "server:app", "--host", "0.0.0.0", "--port", "8100"]
+CMD ["python", "-m", "uvicorn", "image_embeddings.app:app", "--host", "0.0.0.0", "--port", "8100"]

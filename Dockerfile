@@ -4,7 +4,7 @@ FROM chromadb/chroma:latest
 WORKDIR /app
 
 COPY server.py /app/
-COPY image_embeddings.py /app/
+COPY image_embeddings/image_embeddings.py /app/
 COPY requirements.txt /app/
 
 

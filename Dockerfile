@@ -3,9 +3,10 @@ FROM chromadb/chroma:latest
 
 WORKDIR /app
 
-COPY server.py /app
-COPY image_embeddings.py/app
-COPY requirements.txt /app
+COPY server.py /app/
+COPY image_embeddings.py /app/
+COPY requirements.txt /app/
+
 
 RUN python -m venv /app/venv
 ENV PATH="/app/venv/bin:$PATH"

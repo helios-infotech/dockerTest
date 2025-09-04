@@ -20,8 +20,8 @@
 
 
 
-# Use Chroma image with Python installed
-FROM chromadb/chroma:latest
+# Use Python base image
+FROM python:3.12-slim
 
 # Set working directory
 WORKDIR /app
@@ -31,12 +31,18 @@ COPY server.py /app/
 COPY image_embeddings/image_embeddings.py /app/
 COPY requirements.txt /app/
 
-# Install dependencies
+# Install system dependencies for Chroma (if needed)
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    libffi-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+# Upgrade pip and install Python dependencies
 RUN pip install --no-cache-dir --upgrade pip \
     && pip install --no-cache-dir -r requirements.txt
 
 # Expose port
 EXPOSE 8100
 
-# Start FastAPI app with Uvicorn
+# Start FastAPI app
 CMD ["python", "-m", "uvicorn", "image_embeddings.app:app", "--host", "0.0.0.0", "--port", "8100"]

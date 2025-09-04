@@ -28,13 +28,7 @@ COPY server.py /app/
 COPY image_embeddings/image_embeddings.py /app/
 COPY requirements.txt /app/
 
-RUN apt-get update && apt-get install -y \
-    build-essential \
-    libffi-dev \
-    && rm -rf /var/lib/apt/lists/*
-
-RUN pip install --no-cache-dir --upgrade pip \
-    && pip install --no-cache-dir -r requirements.txt
+RUN pip install -r requirements.txt
 
 
 EXPOSE 8100

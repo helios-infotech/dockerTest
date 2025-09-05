@@ -20,7 +20,7 @@ langchain-core>=0.2.39
 langchain-openai>=0.1.21
 streamlit
 langgraph-checkpoint-mongodb
-
+torch
 clip
 chromadb
 

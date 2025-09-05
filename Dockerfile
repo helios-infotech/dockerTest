@@ -28,6 +28,10 @@ COPY server.py /app/
 COPY image_embeddings/image_embeddings.py /app/
 COPY requirements.txt /app/
 
+
+RUN python -m venv /app/venv
+ENV PATH="/app/venv/bin:$PATH"
+
 RUN pip install -r requirements.txt
 
 
